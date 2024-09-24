@@ -1,0 +1,74 @@
+CREATE TABLE employees (
+    emp_id SERIAL PRIMARY KEY,
+    fname VARCHAR(100) NOT NULL,
+    lname VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    dept VARCHAR(50),
+    salary DECIMAL(10, 2) DEFAULT 30000.00,
+    hire_date DATE NOT NULL DEFAULT CURRENT_DATE
+);
+
+INSERT INTO employees (emp_id, fname, lname, email, dept, salary, hire_date) 
+
+      VALUES
+
+(1, 'Raj', 'Sharma', 'raj.sharma@example.com', 'IT', 50000.00, '2020-01-15'),
+
+(2, 'Priya', 'Singh', 'priya.singh@example.com', 'HR', 45000.00, '2019-03-22'),
+
+(3, 'Arjun', 'Verma', 'arjun.verma@example.com', 'IT', 55000.00, '2021-06-01'),
+
+(4, 'Suman', 'Patel', 'suman.patel@example.com', 'Finance', 60000.00, '2018-07-30'),
+
+(5, 'Kavita', 'Rao', 'kavita.rao@example.com', 'HR', 47000.00, '2020-11-10'),
+
+(6, 'Amit', 'Gupta', 'amit.gupta@example.com', 'Marketing', 52000.00, '2020-09-25'),
+
+(7, 'Neha', 'Desai', 'neha.desai@example.com', 'IT', 48000.00, '2019-05-18'),
+
+(8, 'Rahul', 'Kumar', 'rahul.kumar@example.com', 'IT', 53000.00, '2021-02-14'),
+
+(9, 'Anjali', 'Mehta', 'anjali.mehta@example.com', 'Finance', 61000.00, '2018-12-03'),
+
+(10, 'Vijay', 'Nair', 'vijay.nair@example.com', 'Marketing', 50000.00, '2020-04-19');
+
+
+WHERE Clause (Filter records)
+The WHERE clause is used to filter records based on specific conditions. For example, to get all employees in the HR department:
+
+SELECT * FROM employees
+WHERE dept = 'HR';
+
+
+
+
+
+ORDER BY Clause (Sort records)
+The ORDER BY clause is used to sort the result set. For example, to sort employees by salary in descending order:
+
+SELECT * FROM employees
+ORDER BY salary DESC;
+
+
+
+
+GROUP BY Clause (Group records and aggregate data)
+The GROUP BY clause is used with aggregate functions like COUNT, SUM, AVG. For example, to get the average salary by department:
+
+SELECT dept, AVG(salary) AS average_salary
+FROM employees
+GROUP BY dept;
+
+
+LIMIT Clause (Limit the number of results)
+The LIMIT clause is used to specify the maximum number of rows the query should return. For example, to get the top 3 highest-paid employees:
+
+SELECT * FROM employees
+LIMIT 5;
+
+SELECT * FROM employees where dept='IT' and salary>= 50000 ORDER BY salary ASC;
+
+
+
+
+
